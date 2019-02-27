@@ -1,6 +1,6 @@
 require "yaml"
 
-require 'lib/composer_builder/config'
+require 'lib/config'
 
 class ComposerBuilder
   def config
