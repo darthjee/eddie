@@ -1,8 +1,8 @@
 FROM ruby:2.5.0
 
-RUN mkdir /home/app
+RUN mkdir -p /home/app
 
-COPY Gemfile* /home/app
+ADD Gemfile* /home/app/
 
 RUN useradd -u 1000 app; \
     mkdir -p /home/app/app; \
