@@ -1,16 +1,22 @@
 require 'arstotzka'
+require 'lib/config/container'
 
 class Config
   class Application
     include Arstotzka
 
-    expose :containers, json: :hash
+    attr_reader :name, :hash
+    expose :containers, after: :container_for, json: :hash
 
     def initialize(name, hash)
       @name = name
       @hash = hash
     end
 
-    attr_reader :name, :hash
+    private
+
+    def container_for(type)
+      Container.new(type, self)
+    end
   end
 end
