@@ -3,7 +3,14 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 support_files = File.expand_path('spec/support/**/*.rb')
 Dir[support_files].sort.each { |file| require file }
 
+require 'simplecov'
+
+SimpleCov.start do
+  add_filter '/spec/'
+end
+
 require 'lib/composer_builder'
+
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true

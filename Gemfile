@@ -6,4 +6,5 @@ gem 'arstotzka', '1.0.3'
 
 group :test do
   gem 'rspec', '3.8.0'
+  gem 'simplecov', '0.16.1'
 end
