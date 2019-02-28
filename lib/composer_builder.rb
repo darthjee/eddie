@@ -1,16 +1,17 @@
 require "yaml"
 
+require 'lib/setup'
 require 'lib/config'
 require 'lib/application'
 
 class ComposerBuilder
   def build
-    puts applications.map(&:services).flatten.map(&:name)
+    puts config.config
   end
 
   private
 
-  delegate :active_applications, to: :config
+  delegate :active_applications, to: :setup
 
   def applications
     @applications ||= active_applications.map do |application|
@@ -19,10 +20,17 @@ class ComposerBuilder
   end
 
   def config
-    @config ||= Config.new(yml_config)
+    @config ||= Config.new(
+      hash_from_yml('applications.yml'),
+      active_applications.map.map(&:name)
+    )
   end
 
-  def yml_config
-    YAML::load(File.open('applications.yml'))
+  def setup
+    @setup ||= Setup.new(hash_from_yml('setup.yml'))
+  end
+
+  def hash_from_yml(file_name)
+    YAML::load(File.open(file_name))
   end
 end

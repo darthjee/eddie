@@ -1,21 +1,10 @@
 require 'lib/config/application'
 
 class Config
-  def initialize(hash)
-    @hash = hash
+  attr_reader :config, :active_applications
+
+  def initialize(config, active_applications)
+    @config = config
+    @active_applications = active_applications
   end
-
-  def active_applications
-    applications.select(&:active)
-  end
-
-  def applications
-    @applications ||= hash.map do |name, settings|
-      Application.new(name, settings)
-    end
-  end
-
-  private
-
-  attr_reader :hash
 end
