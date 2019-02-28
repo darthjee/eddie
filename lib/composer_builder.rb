@@ -5,7 +5,7 @@ require 'lib/config'
 
 class ComposerBuilder
   def build
-    puts config.applications.map(&:containers)
+    puts config.applications.map(&:application).map(&:containers).flatten.map(&:name)
   end
 
   private
