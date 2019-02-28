@@ -1,7 +1,7 @@
 require 'lib/container'
 
 class Application
-  attr_reader :name
+  attr_reader :name, :container_types
 
   def initialize(name, container_types)
     @name = name
@@ -13,8 +13,4 @@ class Application
       Container.from(container_type, self)
     end
   end
-
-  private
-
-  attr_reader :container_types
 end
