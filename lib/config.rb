@@ -8,7 +8,7 @@ class Config
 
   def applications
     @applications ||= active_applications.map do |name|
-      config[name]
+      Application.new(name, config[name])
     end
   end
 
