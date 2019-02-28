@@ -4,7 +4,7 @@ class Setup
   class Application
     include Arstotzka
 
-    expose :active, :local, json: :hash
+    expose :active, :local, json: :hash, default: false
 
     def initialize(name, hash)
       @name = name
