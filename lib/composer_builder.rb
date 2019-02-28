@@ -2,11 +2,10 @@ require "yaml"
 
 require 'lib/setup'
 require 'lib/config'
-require 'lib/application'
 
 class ComposerBuilder
   def build
-    puts config.config
+    puts config.applications
   end
 
   private

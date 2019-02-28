@@ -4,7 +4,7 @@ class Config
   class Application
     include Arstotzka
 
-    expose :active, :local, json: :hash
+    expose :containers, json: :hash
 
     def initialize(name, hash)
       @name = name

@@ -1,10 +1,18 @@
 require 'lib/config/application'
 
 class Config
-  attr_reader :config, :active_applications
-
   def initialize(config, active_applications)
     @config = config
     @active_applications = active_applications
   end
+
+  def applications
+    @applications ||= active_applications.map do |name|
+      config[name]
+    end
+  end
+
+  private
+
+  attr_reader :config, :active_applications
 end
