@@ -1,0 +1,7 @@
+my-application:
+  active: true
+  local: false
+
+my-inactive-application:
+  active: false
+  local: false
