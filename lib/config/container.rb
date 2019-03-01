@@ -6,5 +6,13 @@ class Config
       @type = type
       @application = application
     end
+
+    def require_db?
+      %w[api worker].include?(type)
+    end
+
+    def require_redis?
+      type == 'worker'
+    end
   end
 end
