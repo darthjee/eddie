@@ -13,7 +13,7 @@ class Config
       @hash = hash
     end
 
-    def application
+    def build
       ::Application.new(name, all_containers)
     end
 

@@ -11,15 +11,15 @@ describe Config::Application do
     { 'containers' => containers }
   end
 
-  describe '#application' do
+  describe '#build' do
     let(:containers_expected) { %w[api worker db redis] }
 
     it 'returns a full application' do
-      expect(subject.application).to be_a(::Application)
+      expect(subject.build).to be_a(::Application)
     end
 
     it 'completes the containers' do
-      expect(subject.application.container_types)
+      expect(subject.build.container_types)
         .to eq(containers_expected)
     end
 
@@ -28,7 +28,7 @@ describe Config::Application do
       let(:containers_expected) { %w[api db] }
 
       it 'completes the containers without redis' do
-        expect(subject.application.container_types)
+        expect(subject.build.container_types)
           .to eq(containers_expected)
       end
     end
