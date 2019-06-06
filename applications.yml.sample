@@ -1,0 +1,2 @@
+main-application:
+  containers: [api, worker]
