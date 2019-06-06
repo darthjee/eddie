@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: darthjee/circleci_ruby_250:0.2.3
+    steps:
+      - checkout
+      - run:
+          name: Prepare Coverage Test Report
+          command: cc-test-reporter before-build
+      - run:
+          name: Bundle Install
+          command: bundle install
+      - run:
+          name: RSpec
+          command: bundle exec rspec
+      - run:
+          name: Coverage Test Report
+          command: cc-test-reporter after-build --exit-code $?
