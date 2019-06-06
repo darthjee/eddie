@@ -19,13 +19,17 @@ class Config
 
     private
 
-    expose :containers, json: :hash, cached: true
+    expose :containers, after_each: :container_for, json: :hash, cached: true
 
     def all_containers
-      @resource_containers ||= containers.dup.tap do |list|
-        list << 'db' if containers.any? { |name| %w[api worker].include?(name) }
-        list << 'redis' if containers.include? 'worker'
+      @resource_containers ||= containers.map(&:type).tap do |list|
+        list << 'db' if containers.any?(&:require_db?)
+        list << 'redis' if containers.any?(&:require_redis?)
       end
+    end
+
+    def container_for(type)
+      Container.new(type, self)
     end
   end
 end
