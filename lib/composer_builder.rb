@@ -6,6 +6,10 @@ require 'lib/config'
 class ComposerBuilder
   def build
     puts config.applications.map(&:build).map(&:containers).flatten.map(&:name)
+
+    puts "================="
+
+    puts applications
   end
 
   private
