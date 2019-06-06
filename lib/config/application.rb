@@ -6,7 +6,7 @@ class Config
   class Application
     include Arstotzka
 
-    attr_reader :name, :hash
+    attr_reader :name
 
     def initialize(name, hash)
       @name = name
@@ -16,6 +16,15 @@ class Config
     def build
       ::Application.new(name, all_containers)
     end
+
+    def ==(other)
+      return unless other.class == self.class
+      other.name == name && other.hash == hash
+    end
+
+    protected
+
+    attr_reader :hash
 
     private
 
