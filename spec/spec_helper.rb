@@ -4,6 +4,8 @@ support_files = File.expand_path('spec/support/**/*.rb')
 Dir[support_files].sort.each { |file| require file }
 
 require 'simplecov'
+require 'pry'
+require 'pry-nav'
 
 SimpleCov.start do
   add_filter '/spec/'
