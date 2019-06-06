@@ -1,14 +1,5 @@
-FROM ruby:2.5.0
-
-RUN mkdir -p /home/app/app
+FROM darthjee/ruby_250:0.2.3
 
 ADD Gemfile* /home/app/app/
 
-RUN useradd -u 1000 app; \
-    mkdir -p /home/app/app; \
-    chown app.app -R /home/app
-
-USER app
-WORKDIR /home/app/app
-
-RUN gem install bundler && bundle install
+RUN bundle install
