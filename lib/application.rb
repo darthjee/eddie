@@ -10,7 +10,7 @@ class Application
 
   def containers
     @containers ||= container_types.map do |container_type|
-      Container.from(container_type, self)
+      Container.from(container_type, self.name)
     end
   end
 end

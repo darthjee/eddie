@@ -1,13 +1,15 @@
 class Container
-  attr_reader :name
+  attr_reader :name, :type
 
-  def initialize(name)
+  def initialize(name, type)
     @name = name
+    @type = type
   end
 
   def self.from(type, application)
     new(
-      [application.name,type].join('-')
+      [application, type].join('-'),
+      type
     )
   end
 end

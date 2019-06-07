@@ -1,11 +1,11 @@
 require 'spec_helper'
 
-describe Config::Container do
+describe Archtecture::Container do
   subject(:container) do
     described_class.new(type, application)
   end
 
-  let(:application) { Config::Application.new('my-app', {}) }
+  let(:application) { Archtecture::Application.new('my-app', {}) }
 
   shared_examples 'a container requiring containers' do |db: true, redis: false|
     it 'responds properly to require_db' do

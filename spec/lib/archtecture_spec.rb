@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-fdescribe Config do
+describe Archtecture do
   subject(:config) do
     described_class.new(config_hash, active_applications)
   end
@@ -17,13 +17,13 @@ fdescribe Config do
 
   describe '#applications' do
     let(:expected_config) do
-      Config::Application.new(
+      Archtecture::Application.new(
         'my_application', 'containers' => %w[api worker]
       )
     end
 
     it do
-      expect(config.applications).to all(be_a(Config::Application))
+      expect(config.applications).to all(be_a(Archtecture::Application))
     end
 
     it 'returns one element for each active application' do
@@ -38,7 +38,7 @@ fdescribe Config do
     context 'when a configuration and settup are not matches' do
       let(:active_applications) { %w[my_app] }
       let(:expected_config) do
-        Config::Application.new(
+        Archtecture::Application.new(
           'my_app', nil
         )
       end

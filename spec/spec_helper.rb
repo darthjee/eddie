@@ -11,7 +11,7 @@ SimpleCov.start do
   add_filter '/spec/'
 end
 
-require 'lib/composer_builder'
+require 'lib/loader'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

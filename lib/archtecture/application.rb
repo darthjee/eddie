@@ -1,8 +1,6 @@
 require 'arstotzka'
-require 'lib/config/container'
-require 'lib/application'
 
-class Config
+class Archtecture
   class Application
     include Arstotzka
 

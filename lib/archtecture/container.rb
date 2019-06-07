@@ -1,4 +1,4 @@
-class Config
+class Archtecture
   class Container
     attr_reader :type, :application
 

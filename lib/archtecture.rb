@@ -1,6 +1,7 @@
-require 'lib/config/application'
+class Archtecture
+  autoload :Application, 'lib/archtecture/application'
+  autoload :Container,   'lib/archtecture/container'
 
-class Config
   def initialize(config, active_applications)
     @config = config
     @active_applications = active_applications

@@ -1,3 +1,5 @@
+require "yaml"
+
 module FixtureHelpers
   def load_fixture_file(filename)
     FixtureHelpers.fixture_file_cache["#{filename}"] ||=

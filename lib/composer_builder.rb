@@ -1,7 +1,6 @@
 require "yaml"
 
-require 'lib/setup'
-require 'lib/config'
+require 'active_support/core_ext/module/delegation'
 
 class ComposerBuilder
   def build
@@ -23,8 +22,8 @@ class ComposerBuilder
   end
 
   def config
-    @config ||= Config.new(
-      hash_from_yml('applications.yml'),
+    @config ||= Archtecture.new(
+      hash_from_yml('archtecture.yml'),
       active_applications.map.map(&:name)
     )
   end

@@ -1,6 +1,6 @@
-require 'lib/setup/application'
-
 class Setup
+  autoload :Application, 'lib/setup/application'
+
   def initialize(hash)
     @hash = hash
   end

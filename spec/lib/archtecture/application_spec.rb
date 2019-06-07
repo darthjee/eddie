@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Config::Application do
+describe Archtecture::Application do
   subject(:application) do
     described_class.new(name, hash)
   end

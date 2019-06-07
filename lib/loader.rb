@@ -1,0 +1,5 @@
+autoload :Application,     'lib/application'
+autoload :Archtecture,     'lib/archtecture'
+autoload :Container,       'lib/container'
+autoload :ComposerBuilder, 'lib/composer_builder'
+autoload :Setup,           'lib/setup'
