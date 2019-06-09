@@ -12,14 +12,18 @@ class Config
       @instance = nil
     end
 
-    def configure(hash)
-      @instance = new(hash)
+    def configure(settings)
+      @instance = new(settings)
     end
   end
 
-  expose :docker_namespace
+  expose :docker_namespace, :docker_domain
 
-  def initialize(hash = {})
-    @hash = hash
+  def initialize(settings = {})
+    @settings = settings
   end
+
+  private
+
+  attr_reader :settings
 end

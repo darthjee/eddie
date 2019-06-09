@@ -1,6 +1,15 @@
 require 'spec_helper'
 
 describe Config do
+  subject(:config) { described_class.new(settings) }
+
+  let(:settings) do
+    {
+      docker_namespace: 'user_name',
+      docker_domain: 'dockerhub'
+    }
+  end
+
   describe '.instance' do
     it do
       expect(described_class.instance).to be_a(described_class)
@@ -38,5 +47,20 @@ describe Config do
   end
 
   describe '.configure' do
+    let(:hash) { { docker_namespace: 'user' } }
+
+    it do
+      expect(described_class.configure(hash))
+        .to be_a(described_class)
+    end
+
+    it 'changes current instance' do
+      expect { described_class.configure(hash) }
+        .to change(described_class, :instance)
+    end
+  end
+
+  describe '#docker_namespace' do
+
   end
 end
