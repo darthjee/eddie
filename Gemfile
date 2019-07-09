@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.5.0'
 
 gem 'rake',      '12.3.1'
-gem 'arstotzka', '1.3.1'
+gem 'arstotzka', '1.4.0'
 gem 'bundler',   '~> 1.16.1'
 
 group :test do
