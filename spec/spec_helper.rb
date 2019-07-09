@@ -1,5 +1,6 @@
 lib = File.expand_path('../', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+
 support_files = File.expand_path('spec/support/**/*.rb')
 Dir[support_files].sort.each { |file| require file }
 
