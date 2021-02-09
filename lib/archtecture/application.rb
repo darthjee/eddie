@@ -26,7 +26,7 @@ class Archtecture
 
     private
 
-    expose :containers, after_each: :container_for, json: :hash, cached: true
+    expose :containers, after_each: :container_for, cached: true
 
     def all_containers
       @resource_containers ||= containers.map(&:type).tap do |list|
